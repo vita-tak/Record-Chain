@@ -5,7 +5,7 @@ export default class RecordRepository {
     }
 
     async findById (id) {
-        return `Found record by id ${id}`;
+        return `Found record by id: '# ${id}'`;
     }
 
     async add(record) {
