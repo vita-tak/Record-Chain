@@ -1,9 +1,10 @@
 import express from "express";
-import { listAllRecords } from "../controllers/records-controller.mjs";
+import { listAllRecords, findById, addRecord } from "../controllers/records-controller.mjs";
 
 const router = express.Router();
 
-router.route("/").get(listAllRecords);
+router.route("/").get(listAllRecords).post(addRecord);
+router.route("/:id").get(findById);
 
 
 export default router;
