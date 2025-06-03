@@ -1,6 +1,6 @@
 export default class RecordRepository {
     
-    async getAll() {
+    async listAll() {
         return "Success";
     }
 
