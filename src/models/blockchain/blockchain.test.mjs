@@ -18,4 +18,51 @@ describe("Blockchain", () => {
     it('should start with the genesis block', () => {
         expect(blockchain.chain.at(0)).toEqual(Block.genesis());
     })
-})
+
+    it('should add a new block to the chain', () => {
+        const data = 'data';
+        blockchain.addBlock(data);
+        expect(blockchain.chain.at(-1).data).toEqual(data);
+    })
+
+    describe('isValid() chain', () => {
+        describe('the genesis block is missing or is not the first block in the chain', () => {
+            it('should return false', () => {
+                blockchain.chain[0] = "strange-block";
+                expect(Blockchain.isValid(blockchain.chain)).toBeFalsy();
+            })
+        })
+
+        describe('when the chain starts with the genesis block and consist of multiple blocks', () => {
+            beforeEach(() => {
+                blockchain.addBlock({ data: 'data' });
+                blockchain.addBlock({ data: 'data2' });
+                blockchain.addBlock({ data: 'data3' });
+                blockchain.addBlock({ data: 'data4' });
+            })
+
+            describe('and the previousHash has changed', () => {
+                it('should return false', () => {
+                blockchain.chain.at(2).previousHash = 'Whoops!';
+                expect(Blockchain.isValid(blockchain.chain)).toBeFalsy();
+                })
+            })
+
+            describe('and the chain contains a block with invalid information', () => {
+                it('should return false', () => {
+                    blockchain.chain.at(1).data = 'You have been breached';
+                    expect(Blockchain.isValid(blockchain.chain)).toBeFalsy();
+                })
+            })
+
+            describe('and the chain does not contain any invalid blocks', () => {
+                it('returns true', () => {
+                    expect(Blockchain.isValid(blockchain.chain)).toBeTruthy();
+                })
+            })
+
+
+
+        })
+    })
+});
