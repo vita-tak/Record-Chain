@@ -1,14 +1,39 @@
 export default class RecordRepository {
     
     async listAll() {
-        return "Success";
+        const response = await fetch("http://localhost:3000/records")
+        if (response) {
+            const records = await response.json();
+            return records;
+        } else {
+            return response.status;
+        }
     }
 
     async findById (id) {
-        return `Found record by id: '# ${id}'`;
+        const response = await fetch(`http://localhost:3000/records/${id}`)
+        if (response) {
+            const record = await response.json();
+            return record;
+        } else {
+            return response.status;
+        }
     }
 
     async add(record) {
-        return record;
+        const response = await fetch("http://localhost:3000/records", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(record)
+        })
+
+        if (response) {
+            const record = await response.json();
+            return record;
+        } else {
+            return response.status;
+        }
     }
 }
