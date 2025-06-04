@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, beforeEach } from "vitest";
 import Block from "./Block.mjs";
 import { GENESIS_BLOCK } from "./genesisBlock.mjs";
 
@@ -86,8 +86,15 @@ describe("Block", () => {
 
     describe('createBlock() function', () => {
      const previousBlock = Block.genesis();
-     const data = [6,7,8,9];
-     const createdBlock = Block.createBlock({ previousBlock, data });
+     const data = [4,5,6,7,8];
+
+     let createdBlock;
+     let now;
+
+     beforeEach(() => {
+         now = Date.now();
+         createdBlock = Block.createBlock({ previousBlock, data });
+     })
 
      it('should return an instance of Block', () => {
         expect(createdBlock instanceof Block).toBeTruthy();
