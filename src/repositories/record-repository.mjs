@@ -9,6 +9,6 @@ export default class RecordRepository {
     }
 
     async add(record) {
-        return `Record ${record} added`;
+        return record;
     }
 }
