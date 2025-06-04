@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import Block from "./Block.mjs";
+import { GENESIS_BLOCK } from "./genesisBlock.mjs";
 import { generateHash } from "../../utilities/hash-generator.mjs";
 
 describe("Block", () => {
@@ -37,6 +38,51 @@ describe("Block", () => {
             expect(block).toHaveProperty('nonce');
         });
     })
+
+    describe('should have its properties correctly initialized',()=>{
+        it('should initialize with a timestamp value', () => {
+            expect(block.timestamp).not.toEqual(undefined);
+        })
+
+        it('should initialize with the correct hash value', () => {
+            expect(block.hash).toEqual(hash);
+        })
+
+        it('should set previousHash from the previous block\'s hash', () => {
+            expect(block.previousHash).toEqual(previousHash);
+        })
+
+        it('should set the data property correctly', () => {
+            expect(block.data).toEqual(data);
+        })
+
+        it('should set the difficulty property correctly', () => {
+            expect(block.difficulty).toEqual(difficulty);
+        })
+
+        it('should set the nonce property correctly', () => {
+            expect(block.nonce).toEqual(nonce);
+        })
+
+        it('should return an instance of Block', () => {
+            expect(block instanceof Block).toBeTruthy();
+        });
+
+
+    })
+
+    describe('genesis function()', () => {
+        const genesisBlock = Block.genesis();
+
+        it('should return an instance of Block', () => {
+            expect(genesisBlock instanceof Block).toBeTruthy();
+        })
+
+        it('should return the genesis block', () => {
+            expect(genesisBlock).toMatchObject(GENESIS_BLOCK);
+        });
+
+    });
 
 
 });

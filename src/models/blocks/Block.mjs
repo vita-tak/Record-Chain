@@ -4,9 +4,9 @@ import { MINE_RATE } from '../../utilities/block-config.mjs';
 import { generateHash } from '../../utilities/hash-generator.mjs';
 
 export default class Block {
-    constructor({ data, previousHash, hash, difficulty, nonce }) {
-        this.id = crypto.randomUUID().replaceAll("-", "");
-        this.timestamp = Date.now();
+    constructor({ id, timestamp, data, previousHash, hash, difficulty, nonce }) {
+        this.id = id || crypto.randomUUID().replaceAll("-", "");
+        this.timestamp = timestamp || Date.now();
         this.data = data;
         this.previousHash = previousHash;
         this.hash = hash;
@@ -35,6 +35,7 @@ export default class Block {
         } while (hash.substring(0, difficulty) !== '0'.repeat(difficulty));
 
         return new this({
+            timestamp,
             hash,
             previousHash,
             data,
