@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/server.mjs",
-    "dev": "nodemon src/server.mjs"
+    "dev": "nodemon src/server.mjs",
+    "server": "npx json-server src/records.json"
   },
   "keywords": [],
   "author": "",

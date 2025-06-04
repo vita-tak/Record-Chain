@@ -1,0 +1,26 @@
+{
+  "records": [
+    {
+      "albumId": "003",
+      "title": "Empyrean Isles",
+      "artist": "Herbie Hancock",
+      "releaseYear": 1964,
+      "genres": ["Jazz", "Post-Bop", "Modal Jazz"],
+      "formats": [
+        {
+          "type": "Vinyl",
+          "condition": "Used - VG+",
+          "edition": "original",
+          "label": "Blue Note",
+          "releaseYear": 1964
+        }
+      ],
+      "seller": {
+        "name": "JazzGroove Records",
+        "location": "Göteborg",
+        "contact": "kontakt@jazzgroove.se"
+      },
+      "inStock": true
+    }
+  ]
+}
