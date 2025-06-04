@@ -139,7 +139,7 @@ describe("Block", () => {
         expect(createdBlock.hash).not.toEqual(previousBlock.hash);
     }); 
 
-    it('should create a hash on the difficulty level', () => {
+    it('should create a hash based on the difficulty level', () => {
         expect(createdBlock.hash.substring(0, createdBlock.difficulty)).toEqual(
             '0'.repeat(createdBlock.difficulty)
         );
