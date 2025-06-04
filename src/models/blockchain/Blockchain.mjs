@@ -7,10 +7,11 @@ export default class Blockchain {
     }
 
     addBlock(data) {
-        const block = Block.createBlock({
+        const newBlock = Block.createBlock({
             previousBlock: this.chain.at(-1),
             data
         });
-        this.chain.push(block);
+
+        this.chain.push(newBlock);
     }
 }

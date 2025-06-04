@@ -1,3 +1,7 @@
+
+import crypto from "crypto";
+import { blockchain } from "../server.mjs";
+
 export default class RecordRepository {
     
     async listAll() {
@@ -21,10 +25,11 @@ export default class RecordRepository {
     }
 
     async add(record) {
+        record.id = crypto.randomUUID().replaceAll("-", "");
         blockchain.addBlock({ data: record });
         return blockchain;
 
-        
+
         // const response = await fetch("http://localhost:3000/records", {
         //     method: "POST",
         //     headers: {
