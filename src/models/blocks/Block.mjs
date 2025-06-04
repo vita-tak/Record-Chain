@@ -10,4 +10,14 @@ export default class Block {
         this.difficulty = difficulty;
         this.nonce = nonce;
     }
+
+    static genesis() {
+        return new this(GENESIS_BLOCK);
+    }
+
+    static createBlock({ previousBlock, data }) {
+        let timestamp, hash;
+        const previousHash = previousBlock.hash;
+        let { difficulty } = previousBlock;
+        let nonce = 0;
 }
