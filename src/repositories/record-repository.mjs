@@ -19,6 +19,9 @@ export default class RecordRepository {
     }
 
     async findById (id) {
+        return blockchain.chain.find((block) => block.id === id);
+
+
         // const response = await fetch(`http://localhost:3000/records/${id}`)
         // if (response.ok) {
         //     const record = await response.json();
