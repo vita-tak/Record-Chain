@@ -1,6 +1,7 @@
 import crypto from 'crypto';
 import { GENESIS_BLOCK } from './genesisBlock.mjs';
 import { MINE_RATE } from '../../utilities/block-config.mjs';
+import { generateHash } from '../../utilities/hash-generator.mjs';
 
 export default class Block {
     constructor({ data, previousHash, hash, difficulty, nonce }) {
