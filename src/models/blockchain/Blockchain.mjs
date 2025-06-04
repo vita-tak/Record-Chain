@@ -17,6 +17,18 @@ export default class Blockchain {
         this.chain.push(newBlock);
     }
 
+    replaceChain(chain) {
+        if(chain.length <= this.chain.length) {
+            return;
+        }
+
+        if(!Blockchain.isValid(chain)) {
+            return;
+        }
+
+        this.chain = chain;
+    }
+
     static isValid(chain) {
         if(JSON.stringify(chain.at(0)) !== JSON.stringify(Block.genesis())) {
             return false;
@@ -35,5 +47,7 @@ export default class Blockchain {
         
         return true;
     }
+
+
 
 }
