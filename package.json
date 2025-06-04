@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "vitest",
     "start": "node src/server.mjs",
     "dev": "nodemon src/server.mjs",
     "server": "npx json-server src/records.json"
@@ -17,6 +18,7 @@
   },
   "devDependencies": {
     "json-server": "^0.17.4",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "vitest": "^3.1.4"
   }
 }
