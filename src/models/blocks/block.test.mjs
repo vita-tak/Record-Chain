@@ -1,6 +1,7 @@
 import { describe, expect, it, beforeEach } from "vitest";
 import Block from "./Block.mjs";
 import { GENESIS_BLOCK } from "./genesisBlock.mjs";
+import { generateHash } from "../../utilities/hash-generator.mjs";
 
 
 describe("Block", () => {
@@ -116,6 +117,41 @@ describe("Block", () => {
         expect(createdBlock.timestamp).toBeGreaterThanOrEqual(now);
         expect(createdBlock.timestamp).toBeLessThanOrEqual(now + 100);
     });
+
+    it('should set the data to the provided input', () => {
+        expect(createdBlock.data).toEqual(data);
+    })
+
+    it('should create a valid SHA-256 hash based on the timestamp, previousHash and data', () => {
+        expect(createdBlock.hash).toEqual(
+            generateHash({
+                timestamp: createdBlock.timestamp,
+                previousHash: createdBlock.previousHash,
+                data: createdBlock.data,
+                nonce: createdBlock.nonce,
+                difficulty: createdBlock.difficulty
+            })
+        );
+    })
+
+    it('produces a hash that differs from the previous block\'s hash', () => {
+        expect(createdBlock.hash).not.toEqual(previousBlock.hash);
+    }); 
+
+    it('should create a hash on the difficulty level', () => {
+        expect(createdBlock.hash.substring(0, createdBlock.difficulty)).toEqual(
+            '0'.repeat(createdBlock.difficulty)
+        );
+    })
+
+    it('should adjust the difficulty level', () => {
+        const results = [
+            previousBlock.difficulty + 1,
+            previousBlock.difficulty - 1,
+        ];
+
+        expect(results.includes(createdBlock.difficulty)).toBe(true);
+    })
 
     })
 
