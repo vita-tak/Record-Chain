@@ -1,5 +1,6 @@
 import { describe, expect, it, beforeEach } from "vitest";
 import Block from "./Block.mjs";
+import { MINE_RATE } from "../../utilities/block-config.mjs";
 import { GENESIS_BLOCK } from "./genesisBlock.mjs";
 import { generateHash } from "../../utilities/hash-generator.mjs";
 
@@ -155,4 +156,28 @@ describe("Block", () => {
 
     })
 
+    describe('Adjust the difficulty level', () => {
+        it('should increase the difficulty for a quickly mined block', () => {
+            expect(
+                Block.adjustDifficulty({
+                    block,
+                    timestamp:block + MINE_RATE - 100
+                })
+            ).toEqual(block.difficulty + 1);
+        });
+
+        it('should decrease the difficulty for a slowly mined block', () => {
+            expect(
+                Block.adjustDifficulty({
+                    block,
+                    timestamp:block.timestamp + MINE_RATE + 100
+                })
+            ).toEqual(block.difficulty - 1);
+        });
+
+        it('should have a lower limit of 1 for difficulty level', () => {
+            block.difficulty = -1;
+            expect(Block.adjustDifficulty({block})).toEqual(1);
+        })
+    });
 });
