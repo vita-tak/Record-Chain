@@ -30,7 +30,7 @@ export default class Block {
                 block: previousBlock,
                 timestamp
             });
-            hash = createHash({ timestamp, previousHash, data, nonce, difficulty });
+            hash = generateHash({ timestamp, previousHash, data, nonce, difficulty });
         } while (hash.substring(0, difficulty) !== '0'.repeat(difficulty));
 
         return new this({
