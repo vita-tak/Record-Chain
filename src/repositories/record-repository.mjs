@@ -2,7 +2,7 @@ export default class RecordRepository {
     
     async listAll() {
         const response = await fetch("http://localhost:3000/records")
-        if (response) {
+        if (response.ok) {
             const records = await response.json();
             return records;
         } else {
@@ -12,7 +12,7 @@ export default class RecordRepository {
 
     async findById (id) {
         const response = await fetch(`http://localhost:3000/records/${id}`)
-        if (response) {
+        if (response.ok) {
             const record = await response.json();
             return record;
         } else {
