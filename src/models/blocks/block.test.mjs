@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import Block from "./Block.mjs";
 import { GENESIS_BLOCK } from "./genesisBlock.mjs";
 
+
 describe("Block", () => {
     const timestamp = Date.now();
     const hash = "current-hash";
@@ -83,5 +84,32 @@ describe("Block", () => {
 
     });
 
+    describe('createBlock() function', () => {
+     const previousBlock = Block.genesis();
+     const data = [6,7,8,9];
+     const createdBlock = Block.createBlock({ previousBlock, data });
+
+     it('should return an instance of Block', () => {
+        expect(createdBlock instanceof Block).toBeTruthy();
+    })
+
+    it('should set the previousHash to the hash of the previous block', () => {
+        expect(createdBlock.previousHash).toEqual(previousBlock.hash);
+    })
+
+    it('should set the timestamp to a defined value', () => {
+        expect(createdBlock.timestamp).not.toEqual(undefined);
+    })
+
+    it('should set the timestamp as a number', () => {
+        expect(createdBlock.timestamp).toEqual(expect.any(Number));
+    });
+
+    it('should set the timestamp to current time (within 100ms of now)', () => {
+        expect(createdBlock.timestamp).toBeGreaterThanOrEqual(now);
+        expect(createdBlock.timestamp).toBeLessThanOrEqual(now + 100);
+    });
+
+    })
 
 });
