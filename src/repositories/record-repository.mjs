@@ -5,7 +5,7 @@ import { blockchain } from "../server.mjs";
 export default class RecordRepository {
     
     async listAll() {
-        return blockchain;
+        return blockchain.chain;
 
 
 
@@ -34,7 +34,7 @@ export default class RecordRepository {
     async add(record) {
         record.id = crypto.randomUUID().replaceAll("-", "");
         blockchain.addBlock({ data: record });
-        return blockchain;
+        return blockchain.chain;
 
 
         // const response = await fetch("http://localhost:3000/records", {
