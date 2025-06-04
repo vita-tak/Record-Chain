@@ -1,7 +1,8 @@
 import { INITIAL_DIFFICULTY } from "../../utilities/block-config.mjs";
 
 export const GENESIS_BLOCK = {
-    timestamp: Date.now(),
+    id: 'genesis-block-id',
+    timestamp: 1,
     hash: '#1',
     data: [],
     difficulty: INITIAL_DIFFICULTY,

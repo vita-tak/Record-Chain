@@ -14,4 +14,8 @@ describe("Blockchain", () => {
     it('should contain an array of blocks', () => {
         expect(blockchain.chain instanceof Array).toBeTruthy();
     })
+
+    it('should start with the genesis block', () => {
+        expect(blockchain.chain.at(0)).toEqual(Block.genesis());
+    })
 })
