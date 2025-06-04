@@ -21,6 +21,10 @@ export default class RecordRepository {
     }
 
     async add(record) {
+        blockchain.addBlock({ data: record });
+        return blockchain;
+
+        
         // const response = await fetch("http://localhost:3000/records", {
         //     method: "POST",
         //     headers: {
