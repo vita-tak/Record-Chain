@@ -25,58 +25,6 @@
         "contact": "kontakt@westcoastrecords.se"
       },
       "inStock": true
-    },
-    {
-      "title": "Empyrean Isles",
-      "artist": "Herbie Hancock",
-      "releaseYear": 1964,
-      "genres": [
-        "Jazz",
-        "Post-Bop",
-        "Modal Jazz"
-      ],
-      "formats": [
-        {
-          "type": "Vinyl",
-          "condition": "Used - VG+",
-          "edition": "original",
-          "label": "Blue Note",
-          "releaseYear": 1964
-        }
-      ],
-      "seller": {
-        "name": "West Coast Records",
-        "location": "Göteborg",
-        "contact": "kontakt@westcoastrecords.se"
-      },
-      "inStock": true,
-      "id": 2
-    },
-    {
-      "title": "whaa",
-      "artist": "Herbie Hancock",
-      "releaseYear": 1964,
-      "genres": [
-        "Jazz",
-        "Post-Bop",
-        "Modal Jazz"
-      ],
-      "formats": [
-        {
-          "type": "Vinyl",
-          "condition": "Used - VG+",
-          "edition": "original",
-          "label": "Blue Note",
-          "releaseYear": 1964
-        }
-      ],
-      "seller": {
-        "name": "West Coast Records",
-        "location": "Göteborg",
-        "contact": "kontakt@westcoastrecords.se"
-      },
-      "inStock": true,
-      "id": 3
     }
   ]
 }
