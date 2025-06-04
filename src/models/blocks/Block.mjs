@@ -1,4 +1,6 @@
 import crypto from 'crypto';
+import { GENESIS_BLOCK } from './genesisBlock.mjs';
+import { MINE_RATE } from '../../utilities/block-config.mjs';
 
 export default class Block {
     constructor({ data, previousHash, hash, difficulty, nonce }) {
@@ -20,4 +22,35 @@ export default class Block {
         const previousHash = previousBlock.hash;
         let { difficulty } = previousBlock;
         let nonce = 0;
+
+        do{
+            nonce++;
+            timestamp = Date.now();
+            difficulty = Block.adjustDifficulty({
+                block: previousBlock,
+                timestamp
+            });
+            hash = createHash({ timestamp, previousHash, data, nonce, difficulty });
+        } while (hash.substring(0, difficulty) !== '0'.repeat(difficulty));
+
+        return new this({
+            hash,
+            previousHash,
+            data,
+            nonce,
+            difficulty
+        });
+    }
+
+    static adjustDifficulty({ block, timestamp }) {
+        const { difficulty } = block;
+
+        if(difficulty < 1) return 1;
+
+        if(timestamp - block.timestamp > MINE_RATE){
+            return difficulty - 1;
+        }
+
+        return difficulty + 1;
+    }
 }
