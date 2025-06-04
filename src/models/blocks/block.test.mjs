@@ -145,7 +145,7 @@ describe("Block", () => {
         );
     })
 
-    it('should adjust the difficulty level', () => {
+    it('should adjust the difficulty level correctly', () => {
         const results = [
             previousBlock.difficulty + 1,
             previousBlock.difficulty - 1,
