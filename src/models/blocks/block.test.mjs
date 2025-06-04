@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
 import Block from "./Block.mjs";
 import { GENESIS_BLOCK } from "./genesisBlock.mjs";
-import { generateHash } from "../../utilities/hash-generator.mjs";
 
 describe("Block", () => {
     const timestamp = Date.now();
