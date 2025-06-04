@@ -13,5 +13,5 @@ export const findById = async (req, res) => {
 
 export const addRecord = async (req, res) => {
     const record = await new RecordRepository().add(req.body);
-    res.status(201).json({ success: true, statusCode: 201, data: record, message: "Record added successfully" });
+    res.status(201).json({ success: true, statusCode: 201, blocks: record.chain, message: "Record added successfully" });
 }
