@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "vitest",
-    "start": "node src/server.mjs",
+    "start": "set NODE_ENV=production&& node src/server.mjs",
     "dev": "nodemon src/server.mjs",
     "server": "npx json-server src/records.json"
   },
