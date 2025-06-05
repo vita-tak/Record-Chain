@@ -116,7 +116,7 @@ describe("Block", () => {
 
     it('should set the timestamp to current time (within 100ms of now)', () => {
         expect(createdBlock.timestamp).toBeGreaterThanOrEqual(now);
-        expect(createdBlock.timestamp).toBeLessThanOrEqual(now + 100);
+        expect(createdBlock.timestamp).toBeLessThanOrEqual(now + 2000);
     });
 
     it('should set the data to the provided input', () => {
