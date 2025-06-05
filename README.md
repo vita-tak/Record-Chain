@@ -1,6 +1,6 @@
 # Record Chain
 
-Record Chain is a backend Node.js-based REST API application that simulates a blockchain. The API allows creating blocks with data, listing all blocks in the chain, and retrieving a specific block by its ID.
+Record Chain is a backend Node.js-based REST API application that simulates a blockchain. The API allows creating blocks with data (in this case, music albums), listing all blocks in the chain, and retrieving a specific block by its ID.
 
 The application is built with a focus on proof-of-work verification, test-driven development (TDD), and follows the MVC design pattern to ensure a clear and scalable architecture.
 
