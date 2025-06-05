@@ -28,3 +28,27 @@ The purpose is to provide a basic blockchain solution that can be used as a temp
 - [Nodemon](https://github.com/remy/nodemon)  
 - [Dotenv](https://github.com/motdotla/dotenv)  
 - [Postman](https://www.postman.com/)  
+
+### 💾 Installation
+
+Dependencies:
+
+```bash
+npm install dotenv express@4.18.2
+npm install -D nodemon vitest@3.14 json-server@0.17.4
+````
+
+### ⚙️ Run
+
+```bash
+npm run dev
+````
+
+
+Tests (vitest):
+
+```bash
+npm run test
+````
+
+
