@@ -18,7 +18,7 @@ app.use("/api/v1/records/", recordsRouter);
 app.all("*", (req, res, next) => {
     next(
         new AppError(
-            `Route "${req.originalUrl}" not found`,
+            `Can't find '${req.originalUrl}' on this server`,
             404
         )
     );
