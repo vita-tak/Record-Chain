@@ -4,7 +4,9 @@ export const logger = (req, res, next) => {
     } - ${new Date().toLocaleDateString('sv-SE')} ${new Date().toLocaleTimeString(
       'sv-SE'
     )}`;
-
+  
+    // console.log(message);
+  
     next();
-};
+  };
   
