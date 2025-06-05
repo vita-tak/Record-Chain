@@ -11,12 +11,12 @@ The purpose is to provide a basic blockchain solution that can be used as a temp
 - List all blocks  
 - Create new blocks in the chain as complex objects  
 - Retrieve a specific block by ID  
-- Proof of Work validation for each new block  
-- Data is stored in a JSON file and remains available after the server restarts  
+- Proof of Work validation for each new block
 - Test-driven development using [Vitest](https://vitest.dev)  
+- Data is stored in a JSON file and remains available after the server restarts  
 - Error and event logging to an external log file with centralized logging  
 
-### 📦 Tech Stack
+### 🧱 Built With
 
 - [Node.js](https://nodejs.org/)  
 - [Express](https://expressjs.com/)  
